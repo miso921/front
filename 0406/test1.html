@@ -1,0 +1,121 @@
+<html>
+<head>
+  <title>폼태그 연습</title>
+</head>
+<body>
+  <h2>Form태그 = 양식태그</h2>
+  <!--
+    <form name="폼이름" method="★전송방식(1.get 2.post)" action="전송파일명(?)(해커를 피하기 위해 control이 있음)">
+     각종 서식(양식)
+     * method : 전송방식
+       - get  : URL을 통해서 값을 전달하는 방식
+                방식을 쓰지 않고 넘기면 기본으로 'get'방식으로 넘기기 때문에 더 많이 사용하게 됨
+       - post : HTTP의 Header에 정보를 담아 전달하는 방식(보다 안전)
+    </form>
+  -->
+  <form name="myform" method="get" action="#">
+    <div>성명1 : <input type="text" name="name1" id="name1" autofocus /></div> <!-- id와 name은 가능한 같은 값을 사용하는게 좋다. -->
+    <div>성명2 : <input type="text" name="name2" id="name2" value="관리자" /></div>
+    <div><input type="text" name="name3" id="name3" placeholder="성명을 입력하세요." /></div>
+    <div>주소 : <input type="text" name="address" id="address" size="30" /></div> <!-- 변수명이 같은게 나올 수 있는데 넘어갈 때 배열로 넘어간다. -->
+    <div>나이 : <input type="number" name="age1" id="age1" value="20"/></div>   <!-- name은 같은 이름이 올 수 있지만 id는 유일하기 때문에 같은 값이 올 수 없음!! -->
+    <div>나이2 : <input type="number" name="age2" id="age2" value="20" min="10" max="80" /></div>
+    <div>수량 : <input type="number" name="su" id="su" value="5" min="0" max="100" step="5" /></div>
+    <div><span>성</span>별 : 
+      <input type="radio" name="gender" />남자
+      <input type="radio" name="gender" checked/>여자
+    </div>
+    <div>
+      소지하고 있는 카드
+      <input type="checkbox" name="card" />삼성카드
+      <input type="checkbox" name="card" />LG카드
+      <input type="checkbox" name="card" />농협카드
+      <input type="checkbox" name="card" />BC카드
+      <input type="checkbox" name="card" checked />국민카드
+    </div>
+    <div>비밀번호 : <input type="password" name="pwd" /></div>
+    <div>생일 : <input type="date" name="birthday" value="2023-05-10" /></div>
+    <div>출근시간 : <input type="time" name="startoffice" /></div>
+    <div>회의날짜시간1 : <input type="datetime-local" name="work1" /></div>
+    <div>회의날짜시간2 : <input type="datetime-local" name="work2" value="2023-04-13T18:30" /></div>
+    <div>회의날짜시간3 : <input type="datetime-local" name="work3" value="2023-04-13T18:30" readonly /></div>
+    <div>이메일 : <input type="email" name="email" /></div>
+    <div>전화번호 : <input type="tel" name="tel" /></div>
+    <hr />
+    <div>
+      Combo Box<br />
+      학년(초등학교) :
+      <select name="hakkub"> <!-- size="1"이 생략된 것 뿐! -->
+        <option value="1">1학년</option>  <!-- 서버로 넘어갈 때 value를 쓰지 않으면 '1학년'이 모두 넘어가고 value를 설정하면 그것만 넘어간다 -->
+        <option value="2">2학년</option>
+        <option value="3">3학년</option>
+        <option value="4">4학년</option>
+        <option value="5" selected>5학년</option>
+        <option value="6">6학년</option>
+      </select>
+    </div>
+    <div>
+      List Box<br />
+      좋아하는 산 :
+      <select name="mountain" size="5" multiple> <!-- mutiple은 여러 개 선택 가능 -->
+        <option>백두산</option>  <!-- 서버로 넘어갈 때 value를 쓰지 않으면 '1학년'이 모두 넘어가고 value를 설정하면 그것만 넘어간다 -->
+        <option>한라산</option>
+        <option>지리산</option>
+        <option>설악산</option>
+        <option>오대산</option>
+        <option>계방산</option>
+        <option selected>태백산</option>
+        <option>소백산</option>
+        <option selected>천태산</option>
+      </select>
+    </div>
+    <div>
+      첨부파일 : <input type="file" name="fName" />
+    </div>
+    <p>
+      - 옵션그룹<br />
+      <select name="cc">
+        <optgroup label="공과대학">
+          <option>컴퓨터공학과</option>
+          <option>토목공학과</option>
+          <option>기계공학과</option>
+          <option>전자공학과</option>
+        </optgroup>
+        <optgroup label="인문대학">
+          <option>영문학과</option>
+          <option>국문학과</option>
+          <option>서반어학과</option>
+        </optgroup>
+      </select>
+    </p> 
+    <p>
+      사용량(전체100% 중(?)에서 사용한 양)<br />
+      <meter value="30" min="0" max="100"></meter><br />
+      <meter value="30" min="0" max="200"></meter><br />
+      <meter value="30" low="50" high="150" min="0" max="200"></meter><br />
+      <meter value="180" low="50" high="150" min="0" max="200"></meter><br />
+    </p>
+    <p>
+      - 범위 : ranger<br />
+      소리크기1 : <input type="range" name="volume1"><br />
+      소리크기2 : <input type="range" name="volume2" value="30"><br />
+      소리크기3 : <input type="range" name="volume3" value="30" step="20"><br />
+      소리크기4 : <input type="range" name="volume4" value="30" min="0" max="200" step="20"><br />
+    </p>
+    <p>
+      - 진행상황 : progress<br />
+      진행중1 : <progress></progress><br />
+      진행후 10초 경과(100초 기준) : <progress value="10" max="100"></progress><br />
+    </p>
+    <p>
+      자기소개 : <textarea rows="5" cols="50" name="content" placeholder="자기소개서 양식입니다.">자기소개서</textarea>
+    </p>
+    <p>
+      <input type="submit" />
+      <input type="reset" value="취소" />
+      <input type="button" value="전송" />  <!-- 자료가 잘 들어갔는지 확인하기 위해서는 button으로 와야함 -->
+    </p>
+  </form>
+  <br />
+</body>
+</html>
