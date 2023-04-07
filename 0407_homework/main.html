@@ -1,19 +1,48 @@
-<html>
-<<<<<<< HEAD
-<frameset rows="250px,*" frameborder="0">
-  <frame src="top.html" name="top" noresize></frame>
-  <frameset cols="200px,*">
-    <frame src="left.html" name="left" noresize></frame>
-    <frame src="center.html" name="content"></frame>                 
-  </frameset>  
-=======
-  <frameset rows="33%,67%" frameborder="0">
-    <frameset cols="14%,86%">
-      <frame src="top1.html" name="top1" noresize>
-      <frame src="top2.html" name="top2" noresize>
-    </frameset>
-    <frame src="center.html" name="content">
-  </frameset>
-  
->>>>>>> 27d6461017740cdf028f1a739a12b0d7829962d9
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main.html</title>
+  <style>
+    table {
+      border: 2px solid black;
+      border-collapse: collapse;
+    }
+    td {
+      border: 2px solid black;
+      text-align: center;
+      margin: 0px;
+      padding: 0px;
+    }
+    #top {
+      width: 100%;
+      height: 10px;
+    }
+    #mid2 {
+      width: 60%;
+      height: auto;
+    }
+  </style>
+</head>
+  <div id="top">맨위</div><br />
+  <div>
+    <table>
+      <tr id="mid1">
+        <td>중간1-1</td>
+        <td>중간1-2</td>
+      </tr>
+      <tr id="mid2">
+        <td colspan="2">중간2</td>
+      </tr>
+      <tr id="mid3">
+        <td colspan="2">중간3</td>
+      </tr>
+      <tr id="bott">
+        <td colspan="2">맨아래</td>
+      </tr>
+    </table>
+  </div>
+</body>
 </html>
