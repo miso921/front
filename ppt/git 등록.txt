@@ -1,0 +1,56 @@
+*git 등록하기
+ 1) 유저 등록하기
+  $ git config --global user.name "miso921"
+
+2) 유저의 이메일 주소 등록하기
+  $ git config --global user.email "misoo921@naver.com"
+
+3) 등록 확인하기
+$ git config --list
+
+4) 작업 폴더 초기화
+$ git init
+
+5) 작업물 올리기
+git add .
+
+-- git status // 현재 상태보기
+
+git commit -m "first commit"
+
+git remote add origin https://github.com/miso921/front.git
+
+git remote -v // 연결 잘 되었는지 확인
+
+git push origin master
+
+========================
+
+앞으로  현재 컴퓨터에서 작업할때는?
+
+git add .
+
+git commit -m "메세지"
+
+git push origin master
+
+----------------------------
+----------------------------
+* 작업한 파일을 다른 곳에서 다운받아서 처리할 경우..
+ 
+-(1)- 집에서 git설치후 환경설정(user명과 메일주소등록)하고, git을 실행 후 커맨드 모드에서 아래와 같이 2줄을 입력 처리한다.
+git config --global user.name'아무거나'
+git config --global user.email'misoo921@naver.com'
+
+-(2)- 작업폴더 만든후 vs code에서 작업폴더를 연결한다.(작업폴더를 test로 만들었다면, vs code에서 작업폴더를 연결후 터미널에서 git bash로 연결해서 아래명령을 차례로 수행한다.
+
+git init
+
+git remote add origin https://github.com/cheonbosik/front.git
+
+git pull origin master
+
+--(3)-- 만약에 pull 받은 폴더의 파일이 손상되었을 경우에는 다시 fetch시킨 후 받아준다.
+git fetch --all
+
+git reset --hard origin/master
