@@ -6,9 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>main.html</title>
   <style>
+    @font-face {
+      font-family: 'Nanum Gothic';
+      font-weight: 800;
+      src: url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap');
+    }
     table {
       border: 2px solid black;
       border-collapse: collapse;
+      width: 800px;
+      height: 900px;
     }
     td {
       border: 2px solid black;
@@ -18,23 +25,51 @@
     }
     #top {
       width: 100%;
-      height: 10px;
+      height: 20px;
+      background-color: black;
+      color: white;
     }
+    #toptext:hover {
+      cursor:pointer;
+      text-decoration-line: underline;
+    }
+    #sign {
+      position: relative;
+      top: -170px;
+    }  
+    #menu {
+      position: relative;
+      top: -150px;
+      font-family: 'Nanum Gothic';
+    }  
     #mid2 {
       width: 60%;
       height: auto;
     }
+    #mid2pic {
+      width: 10px;
+      height: 20px;
+    }
   </style>
 </head>
-  <div id="top">맨위</div><br />
+<body>
   <div>
     <table>
-      <tr id="mid1">
-        <td>중간1-1</td>
-        <td>중간1-2</td>
+      <tr id="top">
+        <td id="toptext" colspan="2">집에서 나만의 것을 만드는 사람들의 이야기 ></td>
+      </tr>
+      <tr>
+        <td id="sign">
+          <img src="../images/Life_zip.jpg" 
+        </td>
+        <td id="menu">
+          시간상점 &nbsp; &nbsp; 로그인
+        </td>
       </tr>
       <tr id="mid2">
-        <td colspan="2">중간2</td>
+        <td colspan="2" id="mid2pic">
+          <img src="../images/plants.jpg">
+        </td>
       </tr>
       <tr id="mid3">
         <td colspan="2">중간3</td>
