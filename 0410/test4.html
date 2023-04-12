@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test4.html</title>
+  <style>
+    /* css reset */
+    body {
+      margin: 0px;
+      font-size: 1em; /* 1em = 16px / 0.5em = 8px / 글자크기 상속일 때 => rem (em을 주면 종횡을 비례하게 바꿔줌! 반응형에서는 em을 무조건 사용) */
+    }
+    .container {
+      background-color: gray;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input[type="text"], input[type="number"], input[type="password"], input[type="submit"], select {
+      width: 100%;
+      margin: 20px 0px;
+      padding: 10px 0px;
+      font-size: 1em;
+    }
+    input[type="text"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="submit"]:hover, select:hover {
+      background-color: #eee !important /* !important는 덮어쓰기한 설정값이 있어도 우선순위로 할 수 있게함 */
+    }
+    input[type="radio"] {
+      margin: 15px 5px 25px 10px;
+    }
+    input[type="submit"] {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: blanchedalmond;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form name="myform">
+      <label for="name">성명</label>
+      <input type="text" name="name" id="name" placeholder="아이디를 입력하세요" autofocus required />
+      <label for="age">나이</label>
+      <input type="number" name="age" id="age" />
+      <label for="pwd">비밀번호</label>
+      <input type="password" name="pwd" id="pwd" />
+      <label for="gender">성별</label>
+      <input type="radio" name="gender" id="gender" value="여자" checked />여자 &nbsp;
+      <input type="radio" name="gender" id="gender" value="남자" />남자<br />
+      <label for="job">직업</label>
+      <select name="job" id="job">
+        <option value="">직업선택</option>
+        <option>학생</option>
+        <option>회사원</option>
+        <option>공무원</option>
+        <option>군인</option>
+        <option>기타</option>
+      </select>
+      <input type="submit" value="회원가입" />
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<html>
+<head>
+  <title>회원가입(test3.html)</title>
+</head>
+<body>
+  <form name="myform">
+  <h2>회원가입폼</h2>
+  <table>
+    <tr>
+      <td><label for="mid">아이디</td>
+      <td><input type="text" name="mid" id="mid" required autofocus placeholder="아이디를 입력하세요" maxlength="15" /></td>  <!-- maxlength는 공백을 잡아낼 수 없으니 javascript에서 걸러야함 -->
+    </tr>
+    <tr>
+      <td><label for="pwd">비밀번호</td>
+      <td><input type="password" name="pwd" id="pwd" required placeholder="비밀번호를 입력하세요" /></td>
+    </tr>
+    <tr>
+      <td>성별</td>
+      <td>
+        <input type="radio" name="gender" />남자    
+        <input type="radio" name="gender" />여자<br />
+      </td>
+    </tr>
+    <tr>    
+      <td>취미</td>
+      <td> 
+        <input type="checkbox" name="hobby" value="등산" />등산
+        <input type="checkbox" name="hobby" value="낚시" />낚시
+        <input type="checkbox" name="hobby" value="볼링" />볼링
+        <input type="checkbox" name="hobby" value="수영" />수영
+        <input type="checkbox" name="hobby" value="바둑" />바둑
+        <input type="checkbox" name="hobby" value="기타" checked />기타<br />
+      </td>
+    </tr>
+    <tr>
+      <td>교통수단</td>
+      <td>
+        <select name="traffic">
+          <option>도보</option>
+          <option>버스</option>
+          <option>승용차</option>
+          <option>기차</option>
+          <option>비행기</option>
+        </select>
+      <br />        
+    즐겨찾는 음식  
+      <select name="food" multiple>
+        <option>피자</option>
+        <option>햄버거</option>
+        <option>과일</option>
+        <option>김밥</option>
+        <option>마라탕</option>
+      </select>
+      <br />
+    첨부파일 <input type="file" name="fName"/><br />  
+    자기소개 <textarea rows="5" cols="50" name="content"></textarea><br />
+    <input type="submit" value="회원가입" />
+    <input type="reset" value="다시입력" />
+  </form>  
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5.html</title>
+  <script>
+    document.write("안녕111<br />");
+    atom1();
+
+    function atom1() {  //자바스크립트 함수 function 함수명() {}
+      document.write("이곳은 atom111함수입니다.<br />")
+    }
+
+    atom1();
+    document.write("안녕222<br />")
+    // atom2();
+  </script>
+</head>
+<body>
+  <h2>자바스크립트 함수를 사용한 출력</h2>
+  
+  <script>
+    document.write("안녕333<br />")
+    atom1(); 
+    function atom2(mbc) { 
+      document.write("mbc : " + mbc + "<br />"); 
+      document.write("이곳은 atom222함수입니다.<br />")
+      atom1(); // 함수 안에서 함수 호출하기
+    }
+    atom2("100오랜만입니다.");
+  </script>
+</body>
+</html>

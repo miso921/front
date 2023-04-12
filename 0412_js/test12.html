@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test12.html</title>
+  <script>
+    'use strict';
+
+    function msg1() {
+      // alert("메세지 출력");
+      let su = prompt("수를 입력하세요");
+      // let hap = su + 100; 
+      let hap = eval(su) + 100; 
+      console.log("su1 + 100 : " + hap);
+
+      let ans = confirm("작업을 계속 하시겠습니까?");
+      console.log("ans : " + ans);  // ★ 확인은 'true', 취소는 'false' ★ / 박스 모양 바꾸기가 어렵기 때문에 modal로 바꿔보기
+    }
+  </script>
+</head>
+<body>
+  <h2>스크립트를 통한 입출력</h2>
+  <p>
+    값을 입력해 보세요<br />
+    <input type="button" value="입력" onclick="msg1()" />
+  </p>
+</body>
+</html>

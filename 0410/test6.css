@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;  /* div태그할때는 거의 box-sizing을 준다 */
+}
+body {
+  margin: 0px;
+}
+ul, .container {
+  display: flex;
+  list-style-type: none;
+  height: 300px;
+  padding: 0px;
+
+  flex-direction: column;
+  /* flex-direction: column-reverse; */
+  /* flex-wrap: wrap-reverse; */
+
+  border: 3px solid red;
+
+  justify-content: flex-start;  
+  /* 가로정렬 */
+  /* align-items: center;   */
+  /* 세로정렬 */
+  align-content: space-between;
+}
+
+li:nth-child(3) {
+  align-self: flex-start;
+}

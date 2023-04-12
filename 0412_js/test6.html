@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test6.html</title>
+  <script>
+    atom1();
+
+    function atom1() {
+      document.write("이곳은 atom1입니다.", 100, "<br />");
+      document.write("이곳은 atom1입니다.", (100+200), "<br />");
+      document.write("이곳은 atom1입니다." + (100+300) + "<br />");
+
+      console.log("atom1 입니다.");
+      console.log("atom1 입니다.", 100);
+      console.log("atom1 입니다.", (100+200));
+      console.log("atom1 입니다." + (100+300));
+
+      alert("이곳은 atom1 입니다.");
+      alert("이곳은 atom1 입니다.", 100);
+      alert("이곳은 atom1 입니다." + 100); // alert는 ,로 연결할 수 없고 연산으로 연결해야한다!
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
