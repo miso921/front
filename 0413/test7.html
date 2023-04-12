@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test7.html</title>
+  <script>
+    'use strict'
+
+    function clac() {
+      // let su = myform.su.value;
+      // let su = document.getElementsByName("su")[0].value;
+      // alert("su의 길이 : " + document.getElementsByName("su").length);
+      let su = '';
+      for(let i=0; i<document.getElementsByName("su").length; i++) {
+        su += document.getElementsByName("su")[i].value + " / ";
+      }
+      demo.innerHTML = su;
+    }
+  </script>
+</head>
+<body>
+  <h2>멀티 텍스트 입력 처리 연습</h2>
+  <form name="myform">
+    수1 <input type="number" name="su" value="1" /><br />
+    수2 <input type="number" name="su" value="2" /><br />
+    수3 <input type="number" name="su" value="3" /><br />
+    수4 <input type="number" name="su" value="4" /><br />
+    수5 <input type="number" name="su" value="5" /><br />
+    <!-- <input type="button" value="계산" onclick="clac()" /> --> 
+    <button type="button" onclick="clac()">계산</button> <!-- input 태그 대신 button 태그를 많이 사용하기도 하는데 버튼을 바로 꾸밀 수 있기 때문이다. -->
+  </form>
+  <hr />
+  <div id="demo"></div>
+</body>
+</html>

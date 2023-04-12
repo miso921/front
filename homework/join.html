@@ -18,12 +18,10 @@
     let pwd = document.getElementById("pwd").value.trim();
     let phone = document.getElementById("phone").value;
     let mail = document.getElementById("mail").value;
+    let gender=document.getElementById("gender").value;
     
-    if(document.getElementById("gender1").checked) gender ="남성";
-    if(document.getElementById("gender2").checked) gender ="여성";
-    if(document.getElementById("gender3").checked) gender ="선택안함";
-    
-    let birthday = document.getElementById("birthday").value();
+
+    let birthday = document.getElementById("birthday").value;
 
     if(mid == "") {
       alert("아이디를 입력하세요!")
@@ -54,11 +52,8 @@
     }
     else {
       myform.mid.value = mid;
-      myform.nick.value = nick;
       myform.pwd.value = pwd;
-      myform.phone.value = phone;
-      myform.mail.value = mail;
-      myform.birthday.value = birthday;
+      myform.submit();
     }
   }
   </script>
@@ -92,7 +87,7 @@
 <p><br/></p>
 <div class="container">
   <form name="myform" method="post" action="#"> <!-- form태그에서 값을 전송할때는 보안을 위해 post메소드로 전송해야함! (post는 폼형태만 가능함!)-->
-    <h2 class="text-center mb-4">회원가입</h2>
+    <h2 class="text-center mb-4">회원가입</h2><br />
       <div>
         <div><label for="mid">아이디<span style="color:red">*</span></label></div>
         <div><input type="text" name="mid" id="mid" autofocus required min="5" max="11" placeholder="아이디를 입력해주세요. (5~11자)" /></div>
@@ -124,10 +119,11 @@
       </div><br /><br />
       <div>
         <div>생년월일<span style="color:red">*</span></div>
-        <div><input type="number" name="birthday" id="birthday" required min="5" max="11" placeholder="생년월일을 입력해주세요." /></div>
+        <div><input type="date" name="birthday" id="birthday" required min="5" max="11" placeholder="생년월일을 입력해주세요." /></div>
       </div><br /><br />
       <div>
-        <div><input type="button" value="회원가입" onclick="fCheck()" class="btn btn-success btn-sm form-control mb-2" /></div>
+        <div><input type="button" value="회원가입" onclick="fCheck()" class="btn btn-warning btn-sm form-control mb-2" /></div>
+        <div><a href="login.html"><input type="button" value="로그인" class="btn btn-success btn-sm form-control mb-2" /></a></div>
       </div>
   </form>
   <b><div id="demo" class="text-center"></div></b>

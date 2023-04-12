@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5.html</title>
+  <script>
+    'use strict';
+    
+    function urlCheck() {
+      let url = document.getElementById("url").value.trim();
+
+      if(url == '') {
+        alert('이동할 주소를 입력하세요');
+        document.getElementById("url").focus();
+      }
+      else {
+        location.href = url;  
+        // location.replace(url); 19번과 같은 기능!
+        alert(); // 머무르게 해야 이동이 가능함..이걸 안쓰면 url이동하지 않음
+      }
+    }
+
+    // function enterCheck() {
+    //   let keyCode = window.event.keyCode; // 어디서든 이벤트를 감지한다는 뜻이므로 입력창에서 엔터만을 눌렀을 때 실행할 수 있도록 12번에서 처리
+    //   // alert(keyCode);
+    //   if(keyCode == 13) urlCheck(); // 입력창에서 엔터(13)만 눌렀을 때 urlCheck 함수를 처리하며 이동됨
+    // }
+
+  </script>
+</head>
+<body>
+  <form action="#">
+    <p>
+      이동할 주소를 입력 후 이동 버튼을 클릭하면 해당 주소로 이동하기
+    </p>
+    <hr />
+    <div>
+      이동할 주소 : <input type="text" name="url" id="url" placeholder="이동할 주소를 입력하세요" value="https://" onkeydown="if(event.keyCode==13) urlCheck();" /> <!-- 함수를 따로 생성해서 부르지 않고 함수를 넣어도 되지만 좋은 방법은 아님! -->
+      <input type="button" value="이동" onclick="urlCheck()" /> <!-- onclik은 마우스 클릭일 때만 적용되므로 따로 키보드 엔터를 쳤을 때 처리될 수 있도록 해야함 -->
+    </div>
+</form>
+</body>
+</html>
