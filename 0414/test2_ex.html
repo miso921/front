@@ -43,13 +43,13 @@
     }
     
     function dblCheck() {
-      const regex3 = /[a-zA-Z0-9_`~!@#$%^&*()-_=+,<.>/?[\]{}|]{4,20}/g;  // 비밀번호
+      const regex3 = /^(?=.*[a-z])(?=.*\d)(?=.*_)[A-Za-z\d_]{4,20}$/gi;  // 비밀번호
       const regex4 = /[^가-힣a-z]/gi;  // 성명
-      const regex5 = /[^가-힣]/g;  // 닉네임
+      const regex5 = /[가-힣]/g;  // 닉네임
       const regex6 = /[a-z\d_]+@[a-z\d_]+\.[a-z\d_]/gi;    // 이메일
       const regex7 = /www+\.[a-z\d_]+\.[a-z\d_]/gi;    // 홈페이지 주소
       const regex8 = /[\d]{2,3}\-[\d]{3,4}\-[\d]{4}/g;    // 전화번호
-      // const regex9 = /[^0-9-]{6,1}$/g;    // 주민번호
+      const regex9 = /[\d]{6}\-[1-4]{1}/g;    // 주민번호
 
       let pwd = document.getElementById("pwd").value.trim();
       let name = document.getElementById("name").value.trim();
@@ -57,22 +57,41 @@
       let mail = document.getElementById("mail").value.trim();
       let hp = document.getElementById("hp").value.trim();
       let phone = document.getElementById("phone").value.trim();
-      // let id = document.getElementById("id").value.trim();
+      let id = document.getElementById("id").value.trim();
 
-      if(!regex3.test(pwd)) alert("비밀번호 형식에 맞지 않습니다.");
+      // if(!regex3.test(pwd)) {
+      //   alert("비밀번호 형식에 맞지 않습니다.");
+      //   document.getElementById("pwd").select();
+      // }  
+      if(regex4.test(name)) {
+        alert("성명 형식에 맞지 않습니다.");
+        document.getElementById("name").select();
+      } 
 
-      // else if(!regex4.test(name)) alert("성명 형식에 맞지 않습니다.");
+      else if(!regex5.test(nick)) {
+        alert("닉네임 형식에 맞지 않습니다.");
+        document.getElementById("nick").select();
+      } 
 
-      // else if(!regex5.test(nick)) alert("닉네임 형식에 맞지 않습니다.");
+      else if(!regex6.test(mail)) {
+        alert("이메일 형식에 맞지 않습니다.");
+        document.getElementById("mail").select();
+      } 
 
-      // else if(!regex6.test(mail)) alert("이메일 형식에 맞지 않습니다.");
+      else if(!regex7.test(hp)) {
+        alert("홈페이지주소 형식에 맞지 않습니다.");
+        document.getElementById("hp").select();
+      } 
 
-      // else if(!regex7.test(hp)) alert("홈페이지주소 형식에 맞지 않습니다.");
+      else if(!regex8.test(phone)) {
+        alert("전화번호 형식에 맞지 않습니다.");
+        document.getElementById("phone").select();
+      } 
 
-      // else if(!regex8.test(phone)) alert("전화번호 형식에 맞지 않습니다.");
-
-      // else if(!regex9.test(id)) alert("주민등록번호 형식에 맞지 않습니다.");
-
+      else if(!regex9.test(id)) {
+        alert("주민등록번호 형식에 맞지 않습니다.");
+        document.getElementById("id").select();
+      } 
       else alert("통과하였습니다~");
     }  
   </script>
@@ -131,7 +150,7 @@
       <div class="row">
         <div class="col">
           <label for='nick'>닉네임<span style="color:red;">*</span></label> &nbsp;
-          <input type="text" name="text" id="text" required placeholder="닉네임을 입력해주세요." />
+          <input type="text" name="nick" id="nick" required placeholder="닉네임을 입력해주세요." />
         </div>
       </div>      
       <div class="row">
