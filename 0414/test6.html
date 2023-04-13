@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test6.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'
+
+    // alert("저희 홈페이지를 방문해주셔서 감사합니다!")
+
+    function fCheck() {
+      alert("환영합니다.");
+    }
+
+    function onLoadFunc() {
+      alert("저희 홈페이지를 방문해주셔서 감사합니다!")
+    }
+    function onUnloadFunc() {
+      alert("안녕히 가세요.")
+      location.href = "test5.html";
+    }
+
+
+  </script>
+</head>
+<body onload="onLoadFunc()" onunload="onUnloadFunc()">    <!-- onload 이벤트 : 사이트를 이동할 때 어디로 이동했는지 알려줄 때 사용하면 좋음!! onunload는 현재 지원하지 않음 ㅠㅠ-->
+<div class="container mt-5">
+  <h2>onLoad 이벤트 처리</h2>
+  <input type="button" value="onLoad호출" onclick="fCheck()" />
+  <input type="button" value="이동하기" onclick="location.href='https://www.naver.com';" />
+</div>  
+</body>
+</html>

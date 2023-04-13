@@ -41,20 +41,21 @@
       }
 
       // 출력
-      let str = "<table class= 'table table-hover'><tr>", ac='';
+      let str = "<table class='table table-hover'><tr>", ac='';
       for(let i=start; i<=end; i++) {
         str += "<td>" +  i + '단<br />'
 
         for(let j=1; j<=9; j++) {
-          str = i + "*" +j+ "=" + (i*j) + "<br />";
+          str += i + "*" +j+ "=" + (i*j) + "<br />";
         }
         ac++;
 
         if(ac % cnt == 0) str += "</td></tr><tr>"
         else str += "</td>"
+
       }
       str += "</tr></table>";
-      demo.innerHTML = '<b>' + cnt + "</b>";
+      demo.innerHTML = '<b>' + str + "</b>";
     }
 
     function cleanCheck() {
