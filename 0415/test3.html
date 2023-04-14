@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sample.html</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict'
+
+    function juCheck() {
+      let jumin1 = document.getElementById("jumin1").value;
+      if(jumin1.length == 6) {          // 6자리가 모두 입력되었을 때
+        if(isNaN(jumin1)) {            // jumin1이 숫자가 아니라면
+          alert("숫자만 입력하세요!");
+          document.getElementById("jumin1").select(); 
+        }
+        else {
+          document.getElementById("jumin2").focus();
+        }
+      }
+    }
+    
+    function juminCheck() {
+      let jumin1 = document.getElementById("jumin1").value.trim();
+      let jumin2 = document.getElementById("jumin2").value.trim();
+      
+      if(jumin1 == '' || jumin2 == '' || jumin1.length != 6 || jumin2.length != 7) {  // jumin1이 공백이거나 jumin2가 공백이거나 jumin1이 6자리가 아니거나 jumin2가 7자리가 아닐 때
+        alert("주민번호를 정확히 입력하세요!")
+        document.getElementById(jumin1).focus();
+      }
+      if(isNaN(jumin1) || isNaN(jumin2)) {
+        alert("주민번호는 숫자만 입력하세요");
+        document.getElementById(jumin2).focus();
+      }
+      else {
+        // 정상적인 주민번호 Check Digit 확인하기 - 주민번호의 마지막 자리 확인
+        const check = [2,3,4,5,6,7,8,9,2,3,4,5];
+        let jumin = jumin1 + jumin2;
+
+        let hap=0;
+        for (let i=0; i<check.length; i++) {
+          hap += check[i] * jumin.charAt(i);  // check[0 ~ 마지막] * (jumin1 + jumin2)를 한자리 씩 뽑아서 곱한 것을 누적한다!
+        }
+        let na = hap % 11;  // 곱해서 나온 결과값을 11로 나눔
+        let checkDigit = 11 - na; // 11-나머지값을 한 것이 바로바로 checkDigit번호!
+
+        if(checkDigit > 9) {    // 예외적으로 checkDigit 번호가 9보다 클 때는
+          checkDigit = checkDigit % 10; // checkDigit 번호를 10으로 나눠준다!
+        }
+
+        let str = "<font-color='red'><b>";
+        if(checkDigit == jumin.substring(jumin.length-1)) { // checkDigit 번호와 jumin(jumin1 + jumin2)의 마지막 자리가 같으면 
+          str += "주민번호가 일치합니다."
+        } 
+        else {
+          str += "주민번호가 일치하지 않습니다. 혹시 당신은 간첩?!";
+        }
+        str += "</b></font>";
+        demo.innerHTML = str;
+      }
+    }
+
+    function juminClear() {
+      document.getElementById("jumin1").value='';
+      document.getElementById("jumin2").value='';
+      document.getElementById("demo").value='';
+    }
+  </script>
+</head>
+<body>
+<p><br /></p>
+<div class="container">
+  <h2>주민번호 체크</h2>    
+  <p>
+    <div>주민번호 :</div>
+    <div> 
+      <input type="text" name="jumin1" id="jumin1" size="6" onkeyup="juCheck()" maxlength="6" autofocus required /> -
+      <input type="password" name="jumin2" id="jumin2" size="7" maxlength="7" required />
+    </div>
+  </p>
+  <div>
+    <input type="button" value="주민번호확인" onclick="juminCheck()" class="btn btn-danger btn-sm" />
+    <input type="button" value="다시입력" onclick="juminClear()" class="btn btn-primary btn-sm" />
+  </div>
+  <hr />
+  <div id="demo"></div>
+</div>
+<p><br /></p>
+</body>
+</html>
