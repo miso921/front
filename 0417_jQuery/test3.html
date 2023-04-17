@@ -4,41 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>test1.html</title>
+  <title>test3.html</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
   <script>
     'use strict';
-  
-    window.onload = function() {
-      let product = document.getElementById("product");
-      let priceVar = document.getElementById("price");
-      let su = document.getElementById("su");
-      //alert(product + " 총가격 : " + (price * su));
-      console.log(product + " 총가격 : " + (price * su));
 
-      calcBtn.addEventListener('click', function() {
-        product = product.value;
-        let price = priceVar.value;
-        su = su.value;
+
+    //jQuery => $
+    // 사용법 : $("셀렉터").이벤트(function() {});
+    // jQuery(document).ready(function() {   
+    $(document).ready(function() {           
+
+      // $("#demo").css("color","red");   // 1개 명령어 사용할 때는 중괄호{}는 안쓰고 ("속성","값") 이렇게 사용한다!
+      // $("#demo").css("fontSize","25pt"); 
+      $("#demo").css({'color':'red','fontSize':'25pt'});
+
+      // $("#calcBtn").click(function() {           
+      $("#calcBtn").click(() => {           
+        // let product = document.getElementById("product").value;
+        let product = $("#product").val();
+        let price = $("#price").val();
+        let su = $("#su").val();
+
         if(isNaN(price) || isNaN(su)) {
-          alert("단가와 수량은 숫자로 입력하세요.")
-          priceVar.select();
-          priceVar.focus();
-          return false;
+          alert("숫자만 입력하세요!");
+          $("#price").select();
+          $("#price").focus();
+          return;
         }
-        let res = price * su;
-        alert(product + ": , 단가:"+price+" , 수량:" + su + ", 가격:" + res);
-      });
-    }
 
+        let res = price * su;
+        // alert(product + "의 가격은? " + res + "원");
+        demo.innerHTML = product + "의 가격은? &nbsp;" +res;+ "원";
+      });
+    });    
   </script>
 </head>
 <body>
-<p><br/></p>
-<div class="container">
+<div class="container mt-5">
   <h2 class="mb-3">상품가격 계산하기</h2>
   <form name="myform">
     <div>
@@ -57,7 +64,10 @@
       <input type="button" value="계산하기" id="calcBtn" class="btn btn-success mt-2 form-control">
     </div>
   </form>
-</div>
-<p><br/></p>
+  <hr /> 
+  <p><br/></p>
+  <!-- <font size="5" color="red"><div id="demo"></div></font>  -->
+  <div id="demo"></div> 
+</div>  
 </body>
 </html>
