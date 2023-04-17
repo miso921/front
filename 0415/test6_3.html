@@ -17,13 +17,12 @@
     function start() {
       clearTimeout(statusTime);    
       num += 10;     
-      if(num < 100) {                       
+      if(num <= 100) {                       
         statusTime = setTimeout(start,500); 
         demo.innerHTML = '<progress value="'+num+'" max="100"></progress>';
       }
       else {
-        demo.innerHTML = '<progress value="'+num+'" max="100"></progress>' &nbsp;
-         + "작업종료";
+        demo.innerHTML = '<progress value="'+num+'" max="100"></progress>' + "&nbsp; 작업종료";
       }
     }  
   </script>

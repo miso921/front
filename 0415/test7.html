@@ -17,7 +17,7 @@
     let statusTime;
 
     function plus() {
-      clearInterval(statusTime);     // 잠시 1/1000초 쉬었다가(clear) 
+      clearInterval(statusTime);     // 잠시 1/1000초 쉬었다가(clear) -- 이 코드가 없어도 돌아가지만 plus <=> minus 함수 전환할 때 충돌될 수 있으므로 사용해야함!
       num++;                        // 다시 증가      
       statusTime = setInterval(plus,500);  // 자신이 계속 스스로를 호출하면서 같은 값을 준다.
       demo.innerHTML = num;
