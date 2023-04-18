@@ -25,17 +25,21 @@
       padding: 5px;
     }
 
+    /* div.content {
+
+    } */
+
   </style>
   <script>
     'use strict';
 
     $(function() {
 
-      $('#acc > .content').hide() {
+      $('#acc > .content').hide();   // 일단 서브메뉴 숨기기
 
-      $('#acc > .menu').hover(function() {
-        $(this).next().hide(400);
-        $(this).next().show(400);
+      $('#acc > .menu').hover(function() {  // 주메뉴에 마우스를 올리면
+        $(this).next().stop().show(500);   // 현재 페이지(this) 다음 줄이 숨겨지고 (0.5초)
+        $(this).prev().stop().hide(500);   
       });
       $('#acc > #title').click(function() {
         $('#acc > .content').hide(400);
@@ -46,10 +50,10 @@
 </head>
 <body>
 <p><br/></p>
-<div class="container accordion" id="acc">
-  <h2 id="title">아코디언 메뉴</h2>
+<div class="card accordion" id="acc">
+  <h2 id="title" class="card-body">아코디언 메뉴</h2>
   <div class="menu menu1">주메뉴1</div>
-  <div class="content">
+  <div class="content content1">
     <a href="#">서브메뉴1</a><br />
     <a href="#">서브메뉴2</a><br />
     <a href="#">서브메뉴3</a><br />
@@ -57,7 +61,7 @@
     <a href="#">서브메뉴5</a>
   </div>
   <div class="menu menu2">주메뉴2</div>
-  <div class="content">
+  <div class="content content2">
     <a href="#">서브메뉴1</a><br />
     <a href="#">서브메뉴2</a><br />
     <a href="#">서브메뉴3</a><br />
@@ -65,7 +69,7 @@
     <a href="#">서브메뉴5</a>
   </div>
   <div class="menu menu3">주메뉴3</div>
-  <div class="content">
+  <div class="content content3">
     <a href="#">서브메뉴1</a><br />
     <a href="#">서브메뉴2</a><br />
     <a href="#">서브메뉴3</a><br />
@@ -73,7 +77,7 @@
     <a href="#">서브메뉴5</a>
   </div>
   <div class="menu menu4">주메뉴4</div>
-  <div class="content">
+  <div class="content content4">
     <a href="#">서브메뉴1</a><br />
     <a href="#">서브메뉴2</a><br />
     <a href="#">서브메뉴3</a><br />
